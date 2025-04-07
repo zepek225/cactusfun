@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CactusFun - Jouet Cactus Dansant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .hero video {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    .features, .reviews, .faq {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+    .features li {
+      background: #e0ffe0;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .price {
+      font-size: 1.5rem;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    form {
+      max-width: 500px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const nom = document.getElementById('nom').value;
+      const telephone = document.getElementById('telephone').value;
+      const ville = document.getElementById('ville').value;
+      const adresse = document.getElementById('adresse').value;
+      const message = `Bonjour, je veux commander le jouet cactus.\nNom: ${nom}\nTéléphone: ${telephone}\nVille: ${ville}\nAdresse: ${adresse}`;
+      const url = `https://wa.me/22796548330?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>CactusFun</h1>
+    <p>Le jouet cactus qui fait danser petits et grands !</p>
+  </header>
+
+  <section class="hero">
+    <video src="cactus-video.mp4" autoplay loop muted></video>
+    <p class="price">Seulement 7 000 FCFA</p>
+  </section>
+
+  <form onsubmit="sendToWhatsApp(event)">
+    <h2>Commander maintenant</h2>
+    <input type="text" id="nom" placeholder="Votre nom" required>
+    <input type="tel" id="telephone" placeholder="Numéro de téléphone" required>
+    <input type="text" id="ville" placeholder="Ville" required>
+    <input type="text" id="adresse" placeholder="Adresse complète" required>
+    <button type="submit">Envoyer la commande</button>
+  </form>
+
+  <section class="features">
+    <h2>Pourquoi choisir CactusFun ?</h2>
+    <ul>
+      <li>Rechargeable par USB 🔌</li>
+      <li>120 chansons intégrées 🎶</li>
+      <li>Idéal pour les enfants 👶</li>
+      <li>Livraison gratuite à Niamey 🚚</li>
+      <li>Paiement à la livraison 💵</li>
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>Questions fréquentes</h2>
+    <p><strong>Comment payer ?</strong><br> Paiement à la livraison après réception du jouet.</p>
+    <p><strong>Combien de temps pour être livré ?</strong><br> À Niamey : livraison en moins de 24h.</p>
+    <p><strong>Le jouet est-il solide ?</strong><br> Oui, il est conçu pour durer et amusant pour les enfants de tout âge.</p>
+  </section>
+</body>
+</html>
